@@ -1,16 +1,14 @@
-import { useLoaderData } from "react-router-dom";
-import { getMenu } from "../../services/apiRestaurant.js";
-import MenuItem from "./MenuItem.jsx";
+import { useLoaderData } from 'react-router-dom';
+import { getMenu } from '../../services/apiRestaurant';
+import MenuItem from './MenuItem';
 
 function Menu() {
-  // useLoaderData :  Returns the loader data for the nearest ancestor Route loader
-  // to get both page and data in one place.
   const menu = useLoaderData();
 
   return (
-    <ul>
+    <ul className="divide-y divide-stone-200 px-2">
       {menu.map((pizza) => (
-        <MenuItem pizza={pizza} id={pizza.id} key={pizza.id} />
+        <MenuItem pizza={pizza} key={pizza.id} />
       ))}
     </ul>
   );
